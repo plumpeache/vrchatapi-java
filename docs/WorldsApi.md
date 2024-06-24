@@ -1,22 +1,22 @@
 # WorldsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createWorld**](WorldsApi.md#createWorld) | **POST** /worlds | Create World
-[**deleteWorld**](WorldsApi.md#deleteWorld) | **DELETE** /worlds/{worldId} | Delete World
-[**getActiveWorlds**](WorldsApi.md#getActiveWorlds) | **GET** /worlds/active | List Active Worlds
-[**getFavoritedWorlds**](WorldsApi.md#getFavoritedWorlds) | **GET** /worlds/favorites | List Favorited Worlds
-[**getRecentWorlds**](WorldsApi.md#getRecentWorlds) | **GET** /worlds/recent | List Recent Worlds
-[**getWorld**](WorldsApi.md#getWorld) | **GET** /worlds/{worldId} | Get World by ID
-[**getWorldInstance**](WorldsApi.md#getWorldInstance) | **GET** /worlds/{worldId}/{instanceId} | Get World Instance
-[**getWorldMetadata**](WorldsApi.md#getWorldMetadata) | **GET** /worlds/{worldId}/metadata | Get World Metadata
-[**getWorldPublishStatus**](WorldsApi.md#getWorldPublishStatus) | **GET** /worlds/{worldId}/publish | Get World Publish Status
-[**publishWorld**](WorldsApi.md#publishWorld) | **PUT** /worlds/{worldId}/publish | Publish World
-[**searchWorlds**](WorldsApi.md#searchWorlds) | **GET** /worlds | Search All Worlds
-[**unpublishWorld**](WorldsApi.md#unpublishWorld) | **DELETE** /worlds/{worldId}/publish | Unpublish World
-[**updateWorld**](WorldsApi.md#updateWorld) | **PUT** /worlds/{worldId} | Update World
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createWorld**](WorldsApi.md#createWorld) | **POST** /worlds | Create World |
+| [**deleteWorld**](WorldsApi.md#deleteWorld) | **DELETE** /worlds/{worldId} | Delete World |
+| [**getActiveWorlds**](WorldsApi.md#getActiveWorlds) | **GET** /worlds/active | List Active Worlds |
+| [**getFavoritedWorlds**](WorldsApi.md#getFavoritedWorlds) | **GET** /worlds/favorites | List Favorited Worlds |
+| [**getRecentWorlds**](WorldsApi.md#getRecentWorlds) | **GET** /worlds/recent | List Recent Worlds |
+| [**getWorld**](WorldsApi.md#getWorld) | **GET** /worlds/{worldId} | Get World by ID |
+| [**getWorldInstance**](WorldsApi.md#getWorldInstance) | **GET** /worlds/{worldId}/{instanceId} | Get World Instance |
+| [**getWorldMetadata**](WorldsApi.md#getWorldMetadata) | **GET** /worlds/{worldId}/metadata | Get World Metadata |
+| [**getWorldPublishStatus**](WorldsApi.md#getWorldPublishStatus) | **GET** /worlds/{worldId}/publish | Get World Publish Status |
+| [**publishWorld**](WorldsApi.md#publishWorld) | **PUT** /worlds/{worldId}/publish | Publish World |
+| [**searchWorlds**](WorldsApi.md#searchWorlds) | **GET** /worlds | Search All Worlds |
+| [**unpublishWorld**](WorldsApi.md#unpublishWorld) | **DELETE** /worlds/{worldId}/publish | Unpublish World |
+| [**updateWorld**](WorldsApi.md#updateWorld) | **PUT** /worlds/{worldId} | Update World |
 
 
 <a name="createWorld"></a>
@@ -39,7 +39,7 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
     CreateWorldRequest createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest | 
@@ -59,9 +59,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -79,9 +79,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single World object. |  -  |
-**400** | Error response when trying create a world without having the neccesary Trust rank yet. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single World object. |  -  |
+| **400** | Error response when trying create a world without having the neccesary Trust rank yet. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="deleteWorld"></a>
 # **deleteWorld**
@@ -104,14 +104,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -119,7 +113,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       apiInstance.deleteWorld(worldId);
     } catch (ApiException e) {
@@ -135,9 +129,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -145,7 +139,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -155,9 +149,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="getActiveWorlds"></a>
 # **getActiveWorlds**
@@ -180,14 +174,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -195,15 +183,15 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String featured = "featured_example"; // String | Filters on featured results.
-    String sort = "popularity"; // String | 
+    Boolean featured = true; // Boolean | Filters on featured results.
+    SortOption sort = SortOption.fromValue("popularity"); // SortOption | The sort order of the results.
     Integer n = 60; // Integer | The number of objects to return.
-    String order = "ascending"; // String | 
+    OrderOption order = OrderOption.fromValue("ascending"); // OrderOption | Result ordering
     Integer offset = 56; // Integer | A zero-based offset from the default object sorting from where search results start.
     String search = "search_example"; // String | Filters by world name.
     String tag = "tag_example"; // String | Tags to include (comma-separated). Any of the tags needs to be present.
     String notag = "notag_example"; // String | Tags to exclude (comma-separated).
-    String releaseStatus = "public"; // String | Filter by ReleaseStatus.
+    ReleaseStatus releaseStatus = ReleaseStatus.fromValue("public"); // ReleaseStatus | Filter by ReleaseStatus.
     String maxUnityVersion = "maxUnityVersion_example"; // String | The maximum Unity version supported by the asset.
     String minUnityVersion = "minUnityVersion_example"; // String | The minimum Unity version supported by the asset.
     String platform = "platform_example"; // String | The platform the asset supports.
@@ -223,20 +211,20 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **String**| Filters on featured results. | [optional]
- **sort** | **String**|  | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **order** | **String**|  | [optional] [default to descending] [enum: ascending, descending]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **search** | **String**| Filters by world name. | [optional]
- **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **String**| Tags to exclude (comma-separated). | [optional]
- **releaseStatus** | **String**| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all]
- **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional]
- **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **String**| The platform the asset supports. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **featured** | **Boolean**| Filters on featured results. | [optional] |
+| **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **order** | [**OrderOption**](.md)| Result ordering | [optional] [default to descending] [enum: ascending, descending] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
+| **search** | **String**| Filters by world name. | [optional] |
+| **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] |
+| **notag** | **String**| Tags to exclude (comma-separated). | [optional] |
+| **releaseStatus** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all] |
+| **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional] |
+| **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional] |
+| **platform** | **String**| The platform the asset supports. | [optional] |
 
 ### Return type
 
@@ -244,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -254,8 +242,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedWorld objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of LimitedWorld objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="getFavoritedWorlds"></a>
 # **getFavoritedWorlds**
@@ -278,14 +266,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -293,15 +275,15 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String featured = "featured_example"; // String | Filters on featured results.
-    String sort = "popularity"; // String | 
+    Boolean featured = true; // Boolean | Filters on featured results.
+    SortOption sort = SortOption.fromValue("popularity"); // SortOption | The sort order of the results.
     Integer n = 60; // Integer | The number of objects to return.
-    String order = "ascending"; // String | 
+    OrderOption order = OrderOption.fromValue("ascending"); // OrderOption | Result ordering
     Integer offset = 56; // Integer | A zero-based offset from the default object sorting from where search results start.
     String search = "search_example"; // String | Filters by world name.
     String tag = "tag_example"; // String | Tags to include (comma-separated). Any of the tags needs to be present.
     String notag = "notag_example"; // String | Tags to exclude (comma-separated).
-    String releaseStatus = "public"; // String | Filter by ReleaseStatus.
+    ReleaseStatus releaseStatus = ReleaseStatus.fromValue("public"); // ReleaseStatus | Filter by ReleaseStatus.
     String maxUnityVersion = "maxUnityVersion_example"; // String | The maximum Unity version supported by the asset.
     String minUnityVersion = "minUnityVersion_example"; // String | The minimum Unity version supported by the asset.
     String platform = "platform_example"; // String | The platform the asset supports.
@@ -322,21 +304,21 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **String**| Filters on featured results. | [optional]
- **sort** | **String**|  | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **order** | **String**|  | [optional] [default to descending] [enum: ascending, descending]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **search** | **String**| Filters by world name. | [optional]
- **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **String**| Tags to exclude (comma-separated). | [optional]
- **releaseStatus** | **String**| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all]
- **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional]
- **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **String**| The platform the asset supports. | [optional]
- **userId** | **String**| Target user to see information on, admin-only. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **featured** | **Boolean**| Filters on featured results. | [optional] |
+| **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **order** | [**OrderOption**](.md)| Result ordering | [optional] [default to descending] [enum: ascending, descending] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
+| **search** | **String**| Filters by world name. | [optional] |
+| **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] |
+| **notag** | **String**| Tags to exclude (comma-separated). | [optional] |
+| **releaseStatus** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all] |
+| **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional] |
+| **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional] |
+| **platform** | **String**| The platform the asset supports. | [optional] |
+| **userId** | **String**| Target user to see information on, admin-only. | [optional] |
 
 ### Return type
 
@@ -344,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -354,9 +336,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedWorld objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
+| **200** | Returns a list of LimitedWorld objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 
 <a name="getRecentWorlds"></a>
 # **getRecentWorlds**
@@ -379,14 +361,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -394,15 +370,15 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String featured = "featured_example"; // String | Filters on featured results.
-    String sort = "popularity"; // String | 
+    Boolean featured = true; // Boolean | Filters on featured results.
+    SortOption sort = SortOption.fromValue("popularity"); // SortOption | The sort order of the results.
     Integer n = 60; // Integer | The number of objects to return.
-    String order = "ascending"; // String | 
+    OrderOption order = OrderOption.fromValue("ascending"); // OrderOption | Result ordering
     Integer offset = 56; // Integer | A zero-based offset from the default object sorting from where search results start.
     String search = "search_example"; // String | Filters by world name.
     String tag = "tag_example"; // String | Tags to include (comma-separated). Any of the tags needs to be present.
     String notag = "notag_example"; // String | Tags to exclude (comma-separated).
-    String releaseStatus = "public"; // String | Filter by ReleaseStatus.
+    ReleaseStatus releaseStatus = ReleaseStatus.fromValue("public"); // ReleaseStatus | Filter by ReleaseStatus.
     String maxUnityVersion = "maxUnityVersion_example"; // String | The maximum Unity version supported by the asset.
     String minUnityVersion = "minUnityVersion_example"; // String | The minimum Unity version supported by the asset.
     String platform = "platform_example"; // String | The platform the asset supports.
@@ -423,21 +399,21 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **String**| Filters on featured results. | [optional]
- **sort** | **String**|  | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **order** | **String**|  | [optional] [default to descending] [enum: ascending, descending]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **search** | **String**| Filters by world name. | [optional]
- **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **String**| Tags to exclude (comma-separated). | [optional]
- **releaseStatus** | **String**| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all]
- **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional]
- **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **String**| The platform the asset supports. | [optional]
- **userId** | **String**| Target user to see information on, admin-only. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **featured** | **Boolean**| Filters on featured results. | [optional] |
+| **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **order** | [**OrderOption**](.md)| Result ordering | [optional] [default to descending] [enum: ascending, descending] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
+| **search** | **String**| Filters by world name. | [optional] |
+| **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] |
+| **notag** | **String**| Tags to exclude (comma-separated). | [optional] |
+| **releaseStatus** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all] |
+| **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional] |
+| **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional] |
+| **platform** | **String**| The platform the asset supports. | [optional] |
+| **userId** | **String**| Target user to see information on, admin-only. | [optional] |
 
 ### Return type
 
@@ -445,7 +421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -455,9 +431,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedWorld objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**403** | Error response when trying to see recently visited worlds of another user without sufficient admin permissions. |  -  |
+| **200** | Returns a list of LimitedWorld objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying to see recently visited worlds of another user without sufficient admin permissions. |  -  |
 
 <a name="getWorld"></a>
 # **getWorld**
@@ -465,7 +441,7 @@ Name | Type | Description  | Notes
 
 Get World by ID
 
-Get information about a specific World.
+Get information about a specific World. Works unauthenticated but when so will always return &#x60;0&#x60; for certain fields.
 
 ### Example
 ```java
@@ -473,23 +449,16 @@ Get information about a specific World.
 import io.github.vrchatapi.ApiClient;
 import io.github.vrchatapi.ApiException;
 import io.github.vrchatapi.Configuration;
-import io.github.vrchatapi.auth.*;
 import io.github.vrchatapi.models.*;
 import io.github.vrchatapi.api.WorldsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
-    
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       World result = apiInstance.getWorld(worldId);
       System.out.println(result);
@@ -506,9 +475,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -516,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie)
+No authorization required
 
 ### HTTP request headers
 
@@ -526,8 +495,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single World object. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | Returns a single World object. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="getWorldInstance"></a>
 # **getWorldInstance**
@@ -550,14 +519,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -565,8 +528,8 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
-    String instanceId = "instanceId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
+    String instanceId = "instanceId_example"; // String | Must be a valid instance ID.
     try {
       Instance result = apiInstance.getWorldInstance(worldId, instanceId);
       System.out.println(result);
@@ -583,10 +546,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
- **instanceId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
+| **instanceId** | **String**| Must be a valid instance ID. | |
 
 ### Return type
 
@@ -594,7 +557,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -604,8 +567,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Instance object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single Instance object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="getWorldMetadata"></a>
 # **getWorldMetadata**
@@ -628,14 +591,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -643,7 +600,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       WorldMetadata result = apiInstance.getWorldMetadata(worldId);
       System.out.println(result);
@@ -660,9 +617,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -670,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -680,8 +637,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | OK |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="getWorldPublishStatus"></a>
 # **getWorldPublishStatus**
@@ -704,14 +661,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -719,7 +670,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       WorldPublishStatus result = apiInstance.getWorldPublishStatus(worldId);
       System.out.println(result);
@@ -736,9 +687,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -746,7 +697,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -756,9 +707,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single WorldPublishStatus object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | Returns a single WorldPublishStatus object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="publishWorld"></a>
 # **publishWorld**
@@ -781,14 +732,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -796,7 +741,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       apiInstance.publishWorld(worldId);
     } catch (ApiException e) {
@@ -812,9 +757,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -822,7 +767,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -832,9 +777,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | TODO |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | TODO |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="searchWorlds"></a>
 # **searchWorlds**
@@ -857,14 +802,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -872,17 +811,17 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String featured = "featured_example"; // String | Filters on featured results.
-    String sort = "popularity"; // String | 
+    Boolean featured = true; // Boolean | Filters on featured results.
+    SortOption sort = SortOption.fromValue("popularity"); // SortOption | The sort order of the results.
     String user = "me"; // String | Set to `me` for searching own worlds.
     String userId = "userId_example"; // String | Filter by UserID.
     Integer n = 60; // Integer | The number of objects to return.
-    String order = "ascending"; // String | 
+    OrderOption order = OrderOption.fromValue("ascending"); // OrderOption | Result ordering
     Integer offset = 56; // Integer | A zero-based offset from the default object sorting from where search results start.
     String search = "search_example"; // String | Filters by world name.
     String tag = "tag_example"; // String | Tags to include (comma-separated). Any of the tags needs to be present.
     String notag = "notag_example"; // String | Tags to exclude (comma-separated).
-    String releaseStatus = "public"; // String | Filter by ReleaseStatus.
+    ReleaseStatus releaseStatus = ReleaseStatus.fromValue("public"); // ReleaseStatus | Filter by ReleaseStatus.
     String maxUnityVersion = "maxUnityVersion_example"; // String | The maximum Unity version supported by the asset.
     String minUnityVersion = "minUnityVersion_example"; // String | The minimum Unity version supported by the asset.
     String platform = "platform_example"; // String | The platform the asset supports.
@@ -902,22 +841,22 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **String**| Filters on featured results. | [optional]
- **sort** | **String**|  | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name]
- **user** | **String**| Set to &#x60;me&#x60; for searching own worlds. | [optional] [enum: me]
- **userId** | **String**| Filter by UserID. | [optional]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **order** | **String**|  | [optional] [default to descending] [enum: ascending, descending]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **search** | **String**| Filters by world name. | [optional]
- **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional]
- **notag** | **String**| Tags to exclude (comma-separated). | [optional]
- **releaseStatus** | **String**| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all]
- **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional]
- **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional]
- **platform** | **String**| The platform the asset supports. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **featured** | **Boolean**| Filters on featured results. | [optional] |
+| **sort** | [**SortOption**](.md)| The sort order of the results. | [optional] [default to popularity] [enum: popularity, heat, trust, shuffle, random, favorites, reportScore, reportCount, publicationDate, labsPublicationDate, created, _created_at, updated, _updated_at, order, relevance, magic, name] |
+| **user** | **String**| Set to &#x60;me&#x60; for searching own worlds. | [optional] [enum: me] |
+| **userId** | **String**| Filter by UserID. | [optional] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **order** | [**OrderOption**](.md)| Result ordering | [optional] [default to descending] [enum: ascending, descending] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
+| **search** | **String**| Filters by world name. | [optional] |
+| **tag** | **String**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] |
+| **notag** | **String**| Tags to exclude (comma-separated). | [optional] |
+| **releaseStatus** | [**ReleaseStatus**](.md)| Filter by ReleaseStatus. | [optional] [default to public] [enum: public, private, hidden, all] |
+| **maxUnityVersion** | **String**| The maximum Unity version supported by the asset. | [optional] |
+| **minUnityVersion** | **String**| The minimum Unity version supported by the asset. | [optional] |
+| **platform** | **String**| The platform the asset supports. | [optional] |
 
 ### Return type
 
@@ -925,7 +864,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -935,8 +874,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedWorld objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of LimitedWorld objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="unpublishWorld"></a>
 # **unpublishWorld**
@@ -959,14 +898,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -974,7 +907,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     try {
       apiInstance.unpublishWorld(worldId);
     } catch (ApiException e) {
@@ -990,9 +923,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
 
 ### Return type
 
@@ -1000,7 +933,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1010,9 +943,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
 <a name="updateWorld"></a>
 # **updateWorld**
@@ -1035,14 +968,8 @@ import io.github.vrchatapi.api.WorldsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -1050,7 +977,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     WorldsApi apiInstance = new WorldsApi(defaultClient);
-    String worldId = "worldId_example"; // String | 
+    String worldId = "worldId_example"; // String | Must be a valid world ID.
     UpdateWorldRequest updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest | 
     try {
       World result = apiInstance.updateWorld(worldId, updateWorldRequest);
@@ -1068,10 +995,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **String**|  |
- **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **worldId** | **String**| Must be a valid world ID. | |
+| **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1079,7 +1006,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -1089,7 +1016,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single World object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
+| **200** | Returns a single World object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 

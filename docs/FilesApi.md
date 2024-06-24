@@ -1,24 +1,24 @@
 # FilesApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createFile**](FilesApi.md#createFile) | **POST** /file | Create File
-[**createFileVersion**](FilesApi.md#createFileVersion) | **POST** /file/{fileId} | Create File Version
-[**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /file/{fileId} | Delete File
-[**deleteFileVersion**](FilesApi.md#deleteFileVersion) | **DELETE** /file/{fileId}/{versionId} | Delete File Version
-[**downloadFileVersion**](FilesApi.md#downloadFileVersion) | **GET** /file/{fileId}/{versionId} | Download File Version
-[**finishFileDataUpload**](FilesApi.md#finishFileDataUpload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload
-[**getFile**](FilesApi.md#getFile) | **GET** /file/{fileId} | Show File
-[**getFileDataUploadStatus**](FilesApi.md#getFileDataUploadStatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status
-[**getFiles**](FilesApi.md#getFiles) | **GET** /files | List Files
-[**startFileDataUpload**](FilesApi.md#startFileDataUpload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createFile**](FilesApi.md#createFile) | **POST** /file | Create File |
+| [**createFileVersion**](FilesApi.md#createFileVersion) | **POST** /file/{fileId} | Create File Version |
+| [**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /file/{fileId} | Delete File |
+| [**deleteFileVersion**](FilesApi.md#deleteFileVersion) | **DELETE** /file/{fileId}/{versionId} | Delete File Version |
+| [**downloadFileVersion**](FilesApi.md#downloadFileVersion) | **GET** /file/{fileId}/{versionId} | Download File Version |
+| [**finishFileDataUpload**](FilesApi.md#finishFileDataUpload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload |
+| [**getFile**](FilesApi.md#getFile) | **GET** /file/{fileId} | Show File |
+| [**getFileDataUploadStatus**](FilesApi.md#getFileDataUploadStatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status |
+| [**getFiles**](FilesApi.md#getFiles) | **GET** /files | List Files |
+| [**startFileDataUpload**](FilesApi.md#startFileDataUpload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload |
 
 
 <a name="createFile"></a>
 # **createFile**
-> java.io.File createFile(createFileRequest)
+> ModelFile createFile(createFileRequest)
 
 Create File
 
@@ -37,14 +37,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -54,7 +48,7 @@ public class Example {
     FilesApi apiInstance = new FilesApi(defaultClient);
     CreateFileRequest createFileRequest = new CreateFileRequest(); // CreateFileRequest | 
     try {
-      java.io.File result = apiInstance.createFile(createFileRequest);
+      ModelFile result = apiInstance.createFile(createFileRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#createFile");
@@ -69,17 +63,17 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional] |
 
 ### Return type
 
-[**java.io.File**](java.io.File.md)
+[**ModelFile**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -89,11 +83,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single File object. |  -  |
+| **200** | Returns a single File object. |  -  |
 
 <a name="createFileVersion"></a>
 # **createFileVersion**
-> java.io.File createFileVersion(fileId, createFileVersionRequest)
+> ModelFile createFileVersion(fileId, createFileVersionRequest)
 
 Create File Version
 
@@ -112,14 +106,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -127,10 +115,10 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
     CreateFileVersionRequest createFileVersionRequest = new CreateFileVersionRequest(); // CreateFileVersionRequest | 
     try {
-      java.io.File result = apiInstance.createFileVersion(fileId, createFileVersionRequest);
+      ModelFile result = apiInstance.createFileVersion(fileId, createFileVersionRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#createFileVersion");
@@ -145,18 +133,18 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional] |
 
 ### Return type
 
-[**java.io.File**](java.io.File.md)
+[**ModelFile**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single File object. |  -  |
+| **200** | Returns a single File object. |  -  |
 
 <a name="deleteFile"></a>
 # **deleteFile**
@@ -189,14 +177,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -204,7 +186,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
     try {
       Success result = apiInstance.deleteFile(fileId);
       System.out.println(result);
@@ -221,9 +203,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
 
 ### Return type
 
@@ -231,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -241,12 +223,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after deleting a File. |  -  |
-**404** | Error response when trying to delete a non-existent file. |  -  |
+| **200** | Successful response after deleting a File. |  -  |
+| **404** | Error response when trying to delete a non-existent file. |  -  |
 
 <a name="deleteFileVersion"></a>
 # **deleteFileVersion**
-> java.io.File deleteFileVersion(fileId, versionId)
+> ModelFile deleteFileVersion(fileId, versionId)
 
 Delete File Version
 
@@ -265,14 +247,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -280,10 +256,10 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
-    Integer versionId = 1; // Integer | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
+    Integer versionId = 1; // Integer | Version ID of the asset.
     try {
-      java.io.File result = apiInstance.deleteFileVersion(fileId, versionId);
+      ModelFile result = apiInstance.deleteFileVersion(fileId, versionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#deleteFileVersion");
@@ -298,18 +274,18 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **versionId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **versionId** | **Integer**| Version ID of the asset. | |
 
 ### Return type
 
-[**java.io.File**](java.io.File.md)
+[**ModelFile**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -319,9 +295,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single File object. |  -  |
-**400** | Error response when trying to delete the initial version of a file. Delete the main File object instead. |  -  |
-**500** | Error response when trying to delete any version of a file that is not hte last one. |  -  |
+| **200** | Returns a single File object. |  -  |
+| **400** | Error response when trying to delete the initial version of a file. Delete the main File object instead. |  -  |
+| **500** | Error response when trying to delete any version of a file that is not hte last one. |  -  |
 
 <a name="downloadFileVersion"></a>
 # **downloadFileVersion**
@@ -344,14 +320,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -359,8 +329,8 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
-    Integer versionId = 1; // Integer | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
+    Integer versionId = 1; // Integer | Version ID of the asset.
     try {
       apiInstance.downloadFileVersion(fileId, versionId);
     } catch (ApiException e) {
@@ -376,10 +346,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **versionId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **versionId** | **Integer**| Version ID of the asset. | |
 
 ### Return type
 
@@ -387,7 +357,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -397,11 +367,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Raw file |  -  |
+| **200** | Raw file |  -  |
 
 <a name="finishFileDataUpload"></a>
 # **finishFileDataUpload**
-> java.io.File finishFileDataUpload(fileId, versionId, fileType, finishFileDataUploadRequest)
+> ModelFile finishFileDataUpload(fileId, versionId, fileType, finishFileDataUploadRequest)
 
 Finish FileData Upload
 
@@ -420,14 +390,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -435,12 +399,12 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
-    Integer versionId = 1; // Integer | 
-    String fileType = "file"; // String | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
+    Integer versionId = 1; // Integer | Version ID of the asset.
+    String fileType = "file"; // String | Type of file.
     FinishFileDataUploadRequest finishFileDataUploadRequest = new FinishFileDataUploadRequest(); // FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`.
     try {
-      java.io.File result = apiInstance.finishFileDataUpload(fileId, versionId, fileType, finishFileDataUploadRequest);
+      ModelFile result = apiInstance.finishFileDataUpload(fileId, versionId, fileType, finishFileDataUploadRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#finishFileDataUpload");
@@ -455,20 +419,20 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **versionId** | **Integer**|  |
- **fileType** | **String**|  | [enum: file, signature, delta]
- **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **versionId** | **Integer**| Version ID of the asset. | |
+| **fileType** | **String**| Type of file. | [enum: file, signature, delta] |
+| **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional] |
 
 ### Return type
 
-[**java.io.File**](java.io.File.md)
+[**ModelFile**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -478,11 +442,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single File object. |  -  |
+| **200** | Returns a single File object. |  -  |
 
 <a name="getFile"></a>
 # **getFile**
-> java.io.File getFile(fileId)
+> ModelFile getFile(fileId)
 
 Show File
 
@@ -501,14 +465,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -516,9 +474,9 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
     try {
-      java.io.File result = apiInstance.getFile(fileId);
+      ModelFile result = apiInstance.getFile(fileId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#getFile");
@@ -533,17 +491,17 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
 
 ### Return type
 
-[**java.io.File**](java.io.File.md)
+[**ModelFile**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -553,8 +511,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single File object. |  -  |
-**404** | Error response when trying to show information about a non-existent file. |  -  |
+| **200** | Returns a single File object. |  -  |
+| **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 <a name="getFileDataUploadStatus"></a>
 # **getFileDataUploadStatus**
@@ -577,14 +535,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -592,9 +544,9 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
-    Integer versionId = 1; // Integer | 
-    String fileType = "file"; // String | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
+    Integer versionId = 1; // Integer | Version ID of the asset.
+    String fileType = "file"; // String | Type of file.
     try {
       FileVersionUploadStatus result = apiInstance.getFileDataUploadStatus(fileId, versionId, fileType);
       System.out.println(result);
@@ -611,11 +563,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **versionId** | **Integer**|  |
- **fileType** | **String**|  | [enum: file, signature, delta]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **versionId** | **Integer**| Version ID of the asset. | |
+| **fileType** | **String**| Type of file. | [enum: file, signature, delta] |
 
 ### Return type
 
@@ -623,7 +575,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -633,11 +585,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Current FileVersion upload status. Contains the uploadId needed for uploading, as well as the already uploaded parts. |  -  |
+| **200** | Current FileVersion upload status. Contains the uploadId needed for uploading, as well as the already uploaded parts. |  -  |
 
 <a name="getFiles"></a>
 # **getFiles**
-> List&lt;java.io.File&gt; getFiles(tag, userId, n, offset)
+> List&lt;ModelFile&gt; getFiles(tag, userId, n, offset)
 
 List Files
 
@@ -656,14 +608,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -676,7 +622,7 @@ public class Example {
     Integer n = 60; // Integer | The number of objects to return.
     Integer offset = 56; // Integer | A zero-based offset from the default object sorting from where search results start.
     try {
-      List<java.io.File> result = apiInstance.getFiles(tag, userId, n, offset);
+      List<ModelFile> result = apiInstance.getFiles(tag, userId, n, offset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#getFiles");
@@ -691,20 +637,20 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tag** | **String**| Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional]
- **userId** | **String**| UserID, will always generate a 500 permission error. | [optional]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tag** | **String**| Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional] |
+| **userId** | **String**| UserID, will always generate a 500 permission error. | [optional] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
 
 ### Return type
 
-[**List&lt;java.io.File&gt;**](java.io.File.md)
+[**List&lt;ModelFile&gt;**](ModelFile.md)
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -714,7 +660,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of File objects. |  -  |
+| **200** | Returns a list of File objects. |  -  |
 
 <a name="startFileDataUpload"></a>
 # **startFileDataUpload**
@@ -737,14 +683,8 @@ import io.github.vrchatapi.api.FilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -752,10 +692,10 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FilesApi apiInstance = new FilesApi(defaultClient);
-    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | 
-    Integer versionId = 1; // Integer | 
-    String fileType = "file"; // String | 
-    Integer partNumber = 1; // Integer | 
+    String fileId = "file_00000000-0000-0000-0000-000000000000"; // String | Must be a valid file ID.
+    Integer versionId = 1; // Integer | Version ID of the asset.
+    String fileType = "file"; // String | Type of file.
+    Integer partNumber = 1; // Integer | The part number to start uploading. If not provided, the first part will be started.
     try {
       FileUploadURL result = apiInstance.startFileDataUpload(fileId, versionId, fileType, partNumber);
       System.out.println(result);
@@ -772,12 +712,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **String**|  |
- **versionId** | **Integer**|  |
- **fileType** | **String**|  | [enum: file, signature, delta]
- **partNumber** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fileId** | **String**| Must be a valid file ID. | |
+| **versionId** | **Integer**| Version ID of the asset. | |
+| **fileType** | **String**| Type of file. | [enum: file, signature, delta] |
+| **partNumber** | **Integer**| The part number to start uploading. If not provided, the first part will be started. | [optional] |
 
 ### Return type
 
@@ -785,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -795,6 +735,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |
-**400** | Error response when trying to start an upload against a FileVersion that is already marked as  &#x60;complete&#x60;. |  -  |
+| **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |
+| **400** | Error response when trying to start an upload against a FileVersion that is already marked as  &#x60;complete&#x60;. |  -  |
 

@@ -1,11 +1,11 @@
 # PermissionsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAssignedPermissions**](PermissionsApi.md#getAssignedPermissions) | **GET** /auth/permissions | Get Assigned Permissions
-[**getPermission**](PermissionsApi.md#getPermission) | **GET** /permissions/{permissionId} | Get Permission
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAssignedPermissions**](PermissionsApi.md#getAssignedPermissions) | **GET** /auth/permissions | Get Assigned Permissions |
+| [**getPermission**](PermissionsApi.md#getPermission) | **GET** /permissions/{permissionId} | Get Permission |
 
 
 <a name="getAssignedPermissions"></a>
@@ -29,14 +29,8 @@ import io.github.vrchatapi.api.PermissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -67,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -77,8 +71,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of Permission objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of Permission objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="getPermission"></a>
 # **getPermission**
@@ -101,14 +95,8 @@ import io.github.vrchatapi.api.PermissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -116,7 +104,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    String permissionId = "permissionId_example"; // String | 
+    String permissionId = "permissionId_example"; // String | Must be a valid permission ID.
     try {
       Permission result = apiInstance.getPermission(permissionId);
       System.out.println(result);
@@ -133,9 +121,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **permissionId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **permissionId** | **String**| Must be a valid permission ID. | |
 
 ### Return type
 
@@ -143,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -153,6 +141,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Permission object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single Permission object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 

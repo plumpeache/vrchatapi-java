@@ -1,15 +1,15 @@
 # PlayermoderationApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**clearAllPlayerModerations**](PlayermoderationApi.md#clearAllPlayerModerations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations
-[**deletePlayerModeration**](PlayermoderationApi.md#deletePlayerModeration) | **DELETE** /auth/user/playermoderations/{playerModerationId} | Delete Player Moderation
-[**getPlayerModeration**](PlayermoderationApi.md#getPlayerModeration) | **GET** /auth/user/playermoderations/{playerModerationId} | Get Player Moderation
-[**getPlayerModerations**](PlayermoderationApi.md#getPlayerModerations) | **GET** /auth/user/playermoderations | Search Player Moderations
-[**moderateUser**](PlayermoderationApi.md#moderateUser) | **POST** /auth/user/playermoderations | Moderate User
-[**unmoderateUser**](PlayermoderationApi.md#unmoderateUser) | **PUT** /auth/user/unplayermoderate | Unmoderate User
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**clearAllPlayerModerations**](PlayermoderationApi.md#clearAllPlayerModerations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations |
+| [**deletePlayerModeration**](PlayermoderationApi.md#deletePlayerModeration) | **DELETE** /auth/user/playermoderations/{playerModerationId} | Delete Player Moderation |
+| [**getPlayerModeration**](PlayermoderationApi.md#getPlayerModeration) | **GET** /auth/user/playermoderations/{playerModerationId} | Get Player Moderation |
+| [**getPlayerModerations**](PlayermoderationApi.md#getPlayerModerations) | **GET** /auth/user/playermoderations | Search Player Moderations |
+| [**moderateUser**](PlayermoderationApi.md#moderateUser) | **POST** /auth/user/playermoderations | Moderate User |
+| [**unmoderateUser**](PlayermoderationApi.md#unmoderateUser) | **PUT** /auth/user/unplayermoderate | Unmoderate User |
 
 
 <a name="clearAllPlayerModerations"></a>
@@ -33,14 +33,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -71,7 +65,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -81,8 +75,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success response after e.g. clearing all player moderations. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Success response after e.g. clearing all player moderations. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="deletePlayerModeration"></a>
 # **deletePlayerModeration**
@@ -105,14 +99,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -120,7 +108,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     PlayermoderationApi apiInstance = new PlayermoderationApi(defaultClient);
-    String playerModerationId = "playerModerationId_example"; // String | 
+    String playerModerationId = "playerModerationId_example"; // String | Must be a valid `pmod_` ID.
     try {
       Success result = apiInstance.deletePlayerModeration(playerModerationId);
       System.out.println(result);
@@ -137,9 +125,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **playerModerationId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **playerModerationId** | **String**| Must be a valid &#x60;pmod_&#x60; ID. | |
 
 ### Return type
 
@@ -147,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -157,9 +145,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success response after removing a PlayerModeration by ID. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**403** | Error response when trying to delete someone else&#39;s player moderation. |  -  |
+| **200** | Success response after removing a PlayerModeration by ID. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying to delete someone else&#39;s player moderation. |  -  |
 
 <a name="getPlayerModeration"></a>
 # **getPlayerModeration**
@@ -182,14 +170,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -197,7 +179,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     PlayermoderationApi apiInstance = new PlayermoderationApi(defaultClient);
-    String playerModerationId = "playerModerationId_example"; // String | 
+    String playerModerationId = "playerModerationId_example"; // String | Must be a valid `pmod_` ID.
     try {
       PlayerModeration result = apiInstance.getPlayerModeration(playerModerationId);
       System.out.println(result);
@@ -214,9 +196,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **playerModerationId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **playerModerationId** | **String**| Must be a valid &#x60;pmod_&#x60; ID. | |
 
 ### Return type
 
@@ -224,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -234,9 +216,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single PlayerModeration object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to show information about a non-existent player moderation. |  -  |
+| **200** | Returns a single PlayerModeration object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent player moderation. |  -  |
 
 <a name="getPlayerModerations"></a>
 # **getPlayerModerations**
@@ -259,14 +241,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -292,10 +268,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **String**| Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional]
- **targetUserId** | **String**| Must be valid UserID. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **type** | **String**| Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional] |
+| **targetUserId** | **String**| Must be valid UserID. | [optional] |
 
 ### Return type
 
@@ -303,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -313,8 +289,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of PlayerModeration objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of PlayerModeration objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="moderateUser"></a>
 # **moderateUser**
@@ -322,7 +298,7 @@ Name | Type | Description  | Notes
 
 Moderate User
 
-Moderate a user, e.g. unmute them or show their avatar.
+Moderate a user, e.g. unmute them or show their avatar.  Please see the [Player Moderation docs](https://vrchatapi.github.io/docs/api/#tag--playermoderation) on what playerModerations are, and how they differ from staff moderations.
 
 ### Example
 ```java
@@ -337,14 +313,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -369,9 +339,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | |
 
 ### Return type
 
@@ -379,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -389,8 +359,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single PlayerModeration object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single PlayerModeration object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="unmoderateUser"></a>
 # **unmoderateUser**
@@ -413,14 +383,8 @@ import io.github.vrchatapi.api.PlayermoderationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -445,9 +409,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | |
 
 ### Return type
 
@@ -455,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -465,6 +429,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success response after unmoderating a player moderation. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Success response after unmoderating a player moderation. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 

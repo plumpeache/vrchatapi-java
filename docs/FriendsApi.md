@@ -1,14 +1,14 @@
 # FriendsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteFriendRequest**](FriendsApi.md#deleteFriendRequest) | **DELETE** /user/{userId}/friendRequest | Delete Friend Request
-[**friend**](FriendsApi.md#friend) | **POST** /user/{userId}/friendRequest | Send Friend Request
-[**getFriendStatus**](FriendsApi.md#getFriendStatus) | **GET** /user/{userId}/friendStatus | Check Friend Status
-[**getFriends**](FriendsApi.md#getFriends) | **GET** /auth/user/friends | List Friends
-[**unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**deleteFriendRequest**](FriendsApi.md#deleteFriendRequest) | **DELETE** /user/{userId}/friendRequest | Delete Friend Request |
+| [**friend**](FriendsApi.md#friend) | **POST** /user/{userId}/friendRequest | Send Friend Request |
+| [**getFriendStatus**](FriendsApi.md#getFriendStatus) | **GET** /user/{userId}/friendStatus | Check Friend Status |
+| [**getFriends**](FriendsApi.md#getFriends) | **GET** /auth/user/friends | List Friends |
+| [**unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend |
 
 
 <a name="deleteFriendRequest"></a>
@@ -32,14 +32,8 @@ import io.github.vrchatapi.api.FriendsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -47,7 +41,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FriendsApi apiInstance = new FriendsApi(defaultClient);
-    String userId = "userId_example"; // String | 
+    String userId = "userId_example"; // String | Must be a valid user ID.
     try {
       Success result = apiInstance.deleteFriendRequest(userId);
       System.out.println(result);
@@ -64,9 +58,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| Must be a valid user ID. | |
 
 ### Return type
 
@@ -74,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -84,9 +78,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after cancelling a friend request. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to delete a non-existent friend-request. |  -  |
+| **200** | Successful response after cancelling a friend request. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to delete a non-existent friend-request. |  -  |
 
 <a name="friend"></a>
 # **friend**
@@ -109,14 +103,8 @@ import io.github.vrchatapi.api.FriendsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -124,7 +112,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FriendsApi apiInstance = new FriendsApi(defaultClient);
-    String userId = "userId_example"; // String | 
+    String userId = "userId_example"; // String | Must be a valid user ID.
     try {
       Notification result = apiInstance.friend(userId);
       System.out.println(result);
@@ -141,9 +129,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| Must be a valid user ID. | |
 
 ### Return type
 
@@ -151,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -161,9 +149,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Notifcation object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
+| **200** | Returns a single Notifcation object. |  -  |
+| **400** | Bad request error response when sending a friend request |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
 
 <a name="getFriendStatus"></a>
 # **getFriendStatus**
@@ -186,14 +175,8 @@ import io.github.vrchatapi.api.FriendsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -201,7 +184,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FriendsApi apiInstance = new FriendsApi(defaultClient);
-    String userId = "userId_example"; // String | 
+    String userId = "userId_example"; // String | Must be a valid user ID.
     try {
       FriendStatus result = apiInstance.getFriendStatus(userId);
       System.out.println(result);
@@ -218,9 +201,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| Must be a valid user ID. | |
 
 ### Return type
 
@@ -228,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -238,8 +221,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a users Friend Status. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a users Friend Status. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="getFriends"></a>
 # **getFriends**
@@ -262,14 +245,8 @@ import io.github.vrchatapi.api.FriendsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -296,11 +273,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **offline** | **Boolean**| Returns *only* offline users if true, returns only online and active users if false | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **offline** | **Boolean**| Returns *only* offline users if true, returns only online and active users if false | [optional] |
 
 ### Return type
 
@@ -308,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -318,8 +295,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of LimitedUser objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of LimitedUser objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="unfriend"></a>
 # **unfriend**
@@ -342,14 +319,8 @@ import io.github.vrchatapi.api.FriendsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -357,7 +328,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     FriendsApi apiInstance = new FriendsApi(defaultClient);
-    String userId = "userId_example"; // String | 
+    String userId = "userId_example"; // String | Must be a valid user ID.
     try {
       Success result = apiInstance.unfriend(userId);
       System.out.println(result);
@@ -374,9 +345,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| Must be a valid user ID. | |
 
 ### Return type
 
@@ -384,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -394,7 +365,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after unfriending a user. |  -  |
-**400** | Error response when trying to unfriend someone who is not a friend. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Successful response after unfriending a user. |  -  |
+| **400** | Error response when trying to unfriend someone who is not a friend. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 

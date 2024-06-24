@@ -1,14 +1,14 @@
 # NotificationsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**acceptFriendRequest**](NotificationsApi.md#acceptFriendRequest) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request
-[**clearNotifications**](NotificationsApi.md#clearNotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
-[**deleteNotification**](NotificationsApi.md#deleteNotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
-[**getNotifications**](NotificationsApi.md#getNotifications) | **GET** /auth/user/notifications | List Notifications
-[**markNotificationAsRead**](NotificationsApi.md#markNotificationAsRead) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**acceptFriendRequest**](NotificationsApi.md#acceptFriendRequest) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request |
+| [**clearNotifications**](NotificationsApi.md#clearNotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications |
+| [**deleteNotification**](NotificationsApi.md#deleteNotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification |
+| [**getNotifications**](NotificationsApi.md#getNotifications) | **GET** /auth/user/notifications | List Notifications |
+| [**markNotificationAsRead**](NotificationsApi.md#markNotificationAsRead) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read |
 
 
 <a name="acceptFriendRequest"></a>
@@ -32,14 +32,8 @@ import io.github.vrchatapi.api.NotificationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -47,7 +41,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     NotificationsApi apiInstance = new NotificationsApi(defaultClient);
-    String notificationId = "notificationId_example"; // String | 
+    String notificationId = "notificationId_example"; // String | Must be a valid notification ID.
     try {
       Success result = apiInstance.acceptFriendRequest(notificationId);
       System.out.println(result);
@@ -64,9 +58,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notificationId** | **String**| Must be a valid notification ID. | |
 
 ### Return type
 
@@ -74,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -84,9 +78,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after friending a user. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
-**404** | Error response when trying to accept a non-existent friend request. |  -  |
+| **200** | Successful response after friending a user. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to accept a non-existent friend request. |  -  |
 
 <a name="clearNotifications"></a>
 # **clearNotifications**
@@ -109,14 +103,8 @@ import io.github.vrchatapi.api.NotificationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -147,7 +135,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -157,8 +145,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response after clearing all notifications. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Successful response after clearing all notifications. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="deleteNotification"></a>
 # **deleteNotification**
@@ -181,14 +169,8 @@ import io.github.vrchatapi.api.NotificationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -196,7 +178,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     NotificationsApi apiInstance = new NotificationsApi(defaultClient);
-    String notificationId = "notificationId_example"; // String | 
+    String notificationId = "notificationId_example"; // String | Must be a valid notification ID.
     try {
       Notification result = apiInstance.deleteNotification(notificationId);
       System.out.println(result);
@@ -213,9 +195,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notificationId** | **String**| Must be a valid notification ID. | |
 
 ### Return type
 
@@ -223,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -233,8 +215,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Notifcation object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single Notifcation object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="getNotifications"></a>
 # **getNotifications**
@@ -257,14 +239,8 @@ import io.github.vrchatapi.api.NotificationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -272,7 +248,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     NotificationsApi apiInstance = new NotificationsApi(defaultClient);
-    String type = "all"; // String | Only send notifications of this type (can use `all` for all).
+    String type = "all"; // String | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated.
     Boolean sent = true; // Boolean | Return notifications sent by the user. Must be false or omitted.
     Boolean hidden = true; // Boolean | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`.
     String after = "five_minutes_ago"; // String | Only return notifications sent after this Date. Ignored if type is `friendRequest`.
@@ -294,14 +270,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **String**| Only send notifications of this type (can use &#x60;all&#x60; for all). | [optional]
- **sent** | **Boolean**| Return notifications sent by the user. Must be false or omitted. | [optional]
- **hidden** | **Boolean**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional]
- **after** | **String**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional]
- **n** | **Integer**| The number of objects to return. | [optional] [default to 60]
- **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **type** | **String**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional] |
+| **sent** | **Boolean**| Return notifications sent by the user. Must be false or omitted. | [optional] |
+| **hidden** | **Boolean**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional] |
+| **after** | **String**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional] |
+| **n** | **Integer**| The number of objects to return. | [optional] [default to 60] |
+| **offset** | **Integer**| A zero-based offset from the default object sorting from where search results start. | [optional] |
 
 ### Return type
 
@@ -309,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -319,8 +295,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a list of Notifcation objects. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a list of Notifcation objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 <a name="markNotificationAsRead"></a>
 # **markNotificationAsRead**
@@ -343,14 +319,8 @@ import io.github.vrchatapi.api.NotificationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.vrchat.cloud/api/1");
+    defaultClient.setBasePath("https://vrchat.com/api/1");
     
-    // Configure API key authorization: apiKeyCookie
-    ApiKeyAuth apiKeyCookie = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyCookie");
-    apiKeyCookie.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyCookie.setApiKeyPrefix("Token");
-
     // Configure API key authorization: authCookie
     ApiKeyAuth authCookie = (ApiKeyAuth) defaultClient.getAuthentication("authCookie");
     authCookie.setApiKey("YOUR API KEY");
@@ -358,7 +328,7 @@ public class Example {
     //authCookie.setApiKeyPrefix("Token");
 
     NotificationsApi apiInstance = new NotificationsApi(defaultClient);
-    String notificationId = "notificationId_example"; // String | 
+    String notificationId = "notificationId_example"; // String | Must be a valid notification ID.
     try {
       Notification result = apiInstance.markNotificationAsRead(notificationId);
       System.out.println(result);
@@ -375,9 +345,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notificationId** | **String**| Must be a valid notification ID. | |
 
 ### Return type
 
@@ -385,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+[authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -395,6 +365,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns a single Notifcation object. |  -  |
-**401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **200** | Returns a single Notifcation object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
